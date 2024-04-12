@@ -1,0 +1,25 @@
+name: macos
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  macos-test:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Load .zprofile
+      run: |
+        bash ~/zsh/.zprofile 2> error.log; cat error.log
+        if [ -s error.log ]; then false; fi
+
+    - name: Load .zshrc
+      run: |
+        bash ~/zsh/.zshrc 2> error.log; cat error.log
+        if [ -s error.log ]; then false; fi
