@@ -1,4 +1,5 @@
 export NVM_DIR="$HOME/.nvm"
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
