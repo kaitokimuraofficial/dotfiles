@@ -9,6 +9,19 @@ if ! type brew >/dev/null 2>&1; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
+PLUG_VIM_PATH="$HOME/.vim/autoload/plug.vim"
+
+# Install plug_vim unless it is not locally found
+if [ ! -f "$PLUG_VIM_PATH" ]; then
+    echo "----------------------------------------------------------------------------"
+    echo "vim-plug not found. Installing..."
+    curl -fLo "$PLUG_VIM_PATH" --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    echo "vim-plug installed successfully."
+else
+    echo "vim-plug is already installed."
+fi
+
 
 echo "----------------------------------------------------------------------------"
 echo "Setting up config files..."
