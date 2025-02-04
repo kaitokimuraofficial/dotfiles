@@ -1,3 +1,4 @@
+let maplocalleader = ","
 let mapleader = "\<space>"
 noremap <leader>w :w<cr>
 noremap <leader>n :NERDTree<cr>
@@ -34,6 +35,8 @@ set laststatus=2
 set cursorline
 set clipboard=unnamed
 set hidden
+set belloff=all
+set noerrorbells
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'
