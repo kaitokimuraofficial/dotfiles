@@ -9,6 +9,15 @@ if ! type brew >/dev/null 2>&1; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
+echo "Install tools through brew......"
+if ! command -v node &> /dev/null; then
+    echo "Node.js not found. Install..."
+    brew install node
+    echo "Node.js installed successfully!"
+fi
+node -v
+npm -v
+
 PLUG_VIM_PATH="$HOME/.vim/autoload/plug.vim"
 
 # Install plug_vim unless it is not locally found
