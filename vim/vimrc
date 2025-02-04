@@ -1,12 +1,15 @@
 let mapleader = "\<space>"
 noremap <leader>w :w<cr>
 noremap <leader>n :NERDTree<cr>
+noremap <leader>bp :bprev<cr>
+noremap <leader>bn :bnext<cr>
+
 syntax on
 filetype plugin indent on
 set autoindent
 set expandtab
-set tabstop=4  " tabの幅を4文字分になる"
-set shiftwidth=4  " vimで読み込みのときにtabの幅をスペース4個分にする"
+set tabstop=4
+set shiftwidth=4
 set backspace=2
 colorscheme murphy
 
@@ -22,7 +25,7 @@ set undodir=$HOME/.vim.undodir
 packloadall
 silent! helptags ALL
 
-set number  " ファイルに行の番号を表示できる
+set number
 set wildmenu
 set hlsearch
 set linebreak
@@ -30,6 +33,7 @@ set display+=lastline
 set laststatus=2
 set cursorline
 set clipboard=unnamed
+set hidden
 
 call plug#begin()
 Plug 'scrooloose/nerdtree'     " ファイルをtree表示してくれる
@@ -40,4 +44,38 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/ScrollColors'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
+Plug 'wlangstroth/vim-racket'
+Plug 'mattn/vim-goimports'
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'lervag/vimtex'
+Plug 'thinca/vim-quickrun'
 call plug#end()
+
+let g:rustfmt_autosave=1
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
