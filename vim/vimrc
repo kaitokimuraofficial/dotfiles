@@ -36,10 +36,10 @@ set clipboard=unnamed
 set hidden
 
 call plug#begin()
-Plug 'scrooloose/nerdtree'     " ファイルをtree表示してくれる
+Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
 Plug 'sjl/gundo.vim'
-Plug 'tpope/vim-fugitive'     " Gitを便利に使う
+Plug 'tpope/vim-fugitive'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'vim-scripts/ScrollColors'
 Plug 'flazz/vim-colorschemes'
