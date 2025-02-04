@@ -12,8 +12,8 @@ fi
 
 echo "----------------------------------------------------------------------------"
 echo "Setting up config files..."
-ln -sf ~/dotfiles/zsh/.zshrc ~/.zshrc
-ln -sf ~/dotfiles/vim/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
+ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 
 echo "----------------------------------------------------------------------------"
 echo "please set up iTerm2"

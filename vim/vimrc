@@ -12,6 +12,7 @@ colorscheme murphy
 
 set noswapfile
 set undofile
+set autoread
 
 if !isdirectory(expand("$HOME/.vim/undodir"))
     call mkdir(expand("$HOME/.vim/undodir"), "p")
