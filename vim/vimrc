@@ -38,6 +38,8 @@ set hidden
 set belloff=all
 set noerrorbells
 
+autocmd QuickFixCmdPost *grep* cwindow
+
 call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
