@@ -35,6 +35,7 @@ fi
 echo "----------------------------------------------------------------------------"
 echo "Setting up config files..."
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
+ln -sf ~/dotfiles/zsh/zprofile ~/.zprofile
 ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 
 echo "----------------------------------------------------------------------------"
