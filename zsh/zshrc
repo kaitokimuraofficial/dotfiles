@@ -2,3 +2,9 @@ echo "BE ALL THAT YOU CAN BE!"
 
 export PS1="kaitokimura %1~ %# "
 
+# Haskell GHCup
+[ -f "$GHCUP_ENV" ] && source "$GHCUP_ENV"
+
+# Ocaml
+[[ ! -r "$OPAM_INIT" ]] || source "$OPAM_INIT"  > /dev/null 2> /dev/null
+

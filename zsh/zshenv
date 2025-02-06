@@ -1,0 +1,6 @@
+# zshの環境変数
+HISTFILE="$ZDOTDIR/zsh/history"
+
+GHCUP_ENV="$HOME/.ghcup/env"
+OPAM_INIT="$HOME/.opam/opam-init/init.zsh"
+
