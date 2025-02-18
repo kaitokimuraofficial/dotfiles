@@ -2,6 +2,9 @@ echo "BE ALL THAT YOU CAN BE!"
 
 export PS1="kaitokimura %1~ %# "
 
+# kubectl
+source <(kubectl completion zsh)
+
 # Haskell GHCup
 [ -f "$GHCUP_ENV" ] && source "$GHCUP_ENV"
 
