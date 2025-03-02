@@ -15,13 +15,14 @@ set backspace=2
 colorscheme murphy
 
 set noswapfile
-set undofile
 set autoread
 
+" Enable persistent undo for all files
+set undofile
 if !isdirectory(expand("$HOME/.vim/undodir"))
     call mkdir(expand("$HOME/.vim/undodir"), "p")
 endif
-set undodir=$HOME/.vim.undodir
+set undodir=$HOME/.vim/undodir
 
 packloadall
 silent! helptags ALL
