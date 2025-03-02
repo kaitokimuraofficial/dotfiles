@@ -1,9 +1,75 @@
-let maplocalleader = ","
+" =========================================
+"     ____  __    __  _____________   __
+"    / __ \/ /   / / / / ____/  _/ | / /
+"   / /_/ / /   / / / / / __ / //  |/ / 
+"  / ____/ /___/ /_/ / /_/ // // /|  /  
+" /_/   /_____/\____/\____/___/_/ |_/ 
+" =========================================
+
+" Install vim-plug if it is not already installed
+if empty(glob('̃/.vim/autoload/plug.vim'))
+silent !curl -fLo ̃/.vim/autoload/plug.vim --create-dirs
+\ https://raw.github.com/junegunn/vim-plug/master/plug.vim
+autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin()
+Plug 'scrooloose/nerdtree'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'vim-scripts/ScrollColors'
+Plug 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'wlangstroth/vim-racket'
+Plug 'mattn/vim-goimports'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'rust-lang/rust.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'lervag/vimtex'
+Plug 'thinca/vim-quickrun'
+Plug 'instant-markdown/vim-instant-markdown'
+Plug 'preservim/vim-markdown'
+call plug#end()
+
+packloadall
+silent! helptags ALL
+
+
+" =========================================
+"     __ __ ________  __   __  ______    ____  ____  _____   ________
+"    / //_// ____/\ \/ /  /  |/  /   |  / __ \/ __ \/  _/ | / / ____/
+"   / ,<  / __/    \  /  / /|_/ / /| | / /_/ / /_/ // //  |/ / / __
+"  / /| |/ /___    / /  / /  / / ___ |/ ____/ ____// // /|  / /_/ /
+" /_/ |_/_____/   /_/  /_/  /_/_/  |_/_/   /_/   /___/_/ |_/\____/
+" =========================================
+
 let mapleader = "\<space>"
+
 noremap <leader>w :w<cr>
 noremap <leader>n :NERDTree<cr>
 noremap <leader>bp :bprev<cr>
 noremap <leader>bn :bnext<cr>
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+
+" =========================================
+"    _____________   ____________  ___    __ 
+"   / ____/ ____/ | / / ____/ __ \/   |  / / 
+"  / / __/ __/ /  |/ / __/ / /_/ / /| | / /  
+" / /_/ / /___/ /|  / /___/ _, _/ ___ |/ /___
+" \____/_____/_/ |_/_____/_/ |_/_/  |_/_____/
+" =========================================
 
 syntax on
 filetype plugin indent on
@@ -24,9 +90,7 @@ if !isdirectory(expand("$HOME/.vim/undodir"))
 endif
 set undodir=$HOME/.vim/undodir
 
-packloadall
-silent! helptags ALL
-
+set updatetime=300
 set number
 set wildmenu
 set hlsearch
@@ -41,37 +105,8 @@ set noerrorbells
 
 autocmd QuickFixCmdPost *grep* cwindow
 
-" Install vim-plug if it is not already installed
-if empty(glob('̃/.vim/autoload/plug.vim'))
-silent !curl -fLo ̃/.vim/autoload/plug.vim --create-dirs
-\ https://raw.github.com/junegunn/vim-plug/master/plug.vim
-autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin()
-Plug 'scrooloose/nerdtree'
-Plug 'sjl/gundo.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'vim-scripts/ScrollColors'
-Plug 'flazz/vim-colorschemes'
-Plug 'vim-airline/vim-airline'
-Plug 'wlangstroth/vim-racket'
-Plug 'mattn/vim-goimports'
-Plug 'fatih/vim-go'
-Plug 'rust-lang/rust.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'lervag/vimtex'
-Plug 'thinca/vim-quickrun'
-Plug 'instant-markdown/vim-instant-markdown'
-Plug 'preservim/vim-markdown'
-call plug#end()
-
 let g:rustfmt_autosave=1
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
@@ -81,15 +116,4 @@ if has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
