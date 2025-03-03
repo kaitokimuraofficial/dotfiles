@@ -9,27 +9,16 @@ if ! type brew >/dev/null 2>&1; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
-echo "Install tools through brew......"
-if ! command -v node &> /dev/null; then
-    echo "Node.js not found. Install..."
-    brew install node
-    echo "Node.js installed successfully!"
+echo "Install node through nvm......"
+if ! command -v nvm &> /dev/null; then
+    echo "nvm not found. Install..."
+    /bin/bash -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh)"
+    nvm install 22
+    nvm use 22
+    echo "nvm and Node.js installed successfully!"
 fi
+nvm version
 node -v
-npm -v
-
-PLUG_VIM_PATH="$HOME/.vim/autoload/plug.vim"
-
-# Install plug_vim unless it is not locally found
-if [ ! -f "$PLUG_VIM_PATH" ]; then
-    echo "----------------------------------------------------------------------------"
-    echo "vim-plug not found. Installing..."
-    curl -fLo "$PLUG_VIM_PATH" --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    echo "vim-plug installed successfully."
-else
-    echo "vim-plug is already installed."
-fi
 
 
 echo "----------------------------------------------------------------------------"
