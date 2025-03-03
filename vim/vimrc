@@ -67,6 +67,7 @@ nmap <silent><nowait> gy <Plug>(coc-type-definition)
 nmap <silent><nowait> gi <Plug>(coc-implementation)
 nmap <silent><nowait> gr <Plug>(coc-references)
 
+
 " =========================================
 "    _____________   ____________  ___    __ 
 "   / ____/ ____/ | / / ____/ __ \/   |  / / 
