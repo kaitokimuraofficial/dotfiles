@@ -27,11 +27,7 @@ Plug 'lervag/vimtex' " Plugin for Tex
 Plug 'thinca/vim-quickrun' " Execute program by :QuickRun
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Plugin for Language Server Protocol
 Plug 'rust-lang/rust.vim' " Rust file detection, syntax highlighting, formatting, Syntactic integration, and more
-Plug 'mattn/vim-goimports'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'josa42/coc-go'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Plugin for Golang
 call plug#end()
 
 packloadall
@@ -39,6 +35,13 @@ silent! helptags ALL
 let g:airline_theme = 'wombat'
 let g:airline_powerline_fonts = 1
 let g:rustfmt_autosave=1
+let g:go_fmt_command = "goimports"
+let g:go_def_mapping_enabled = 0
+let g:go_fmt_autosave = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
 
 
 " =========================================
