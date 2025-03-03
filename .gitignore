@@ -3,6 +3,7 @@
 **/.zsh_history
 **/.zsh_sessions
 
+.DS_Store
 .swp
 package-lock.json
 

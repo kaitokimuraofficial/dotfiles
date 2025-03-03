@@ -14,26 +14,31 @@ autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin()
-Plug 'scrooloose/nerdtree'
-Plug 'sjl/gundo.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'vim-scripts/ScrollColors'
-Plug 'flazz/vim-colorschemes'
-Plug 'vim-airline/vim-airline'
-Plug 'wlangstroth/vim-racket'
+Plug 'scrooloose/nerdtree' " File system explorer for tree-like structure
+Plug 'sjl/gundo.vim' " Visualize your Vim undo tree
+Plug 'tpope/vim-fugitive'  " Git plugin for Vim
+Plug 'vim-scripts/ScrollColors' " Switch between the currently installed colorscheme
+Plug 'flazz/vim-colorschemes' " Try various colorscheme
+Plug 'vim-airline/vim-airline' " Status line for Vim
+Plug 'vim-airline/vim-airline-themes' " List possible colorscheme line for Vim
+Plug 'instant-markdown/vim-instant-markdown' " Markdown file browser
+Plug 'preservim/vim-markdown' " Syntax highlighting, matching rules and mappings for the original Markdown and extensions
+Plug 'lervag/vimtex' " Plugin for Tex
+Plug 'thinca/vim-quickrun' " Execute program by :QuickRun
+Plug 'rust-lang/rust.vim' " Rust file detection, syntax highlighting, formatting, Syntactic integration, and more
 Plug 'mattn/vim-goimports'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'lervag/vimtex'
-Plug 'thinca/vim-quickrun'
-Plug 'instant-markdown/vim-instant-markdown'
-Plug 'preservim/vim-markdown'
+Plug 'josa42/coc-go'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 call plug#end()
 
 packloadall
 silent! helptags ALL
+let g:airline_theme = 'wombat'
+let g:airline_powerline_fonts = 1
+let g:rustfmt_autosave=1
 
 
 " =========================================
@@ -57,11 +62,10 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
+nmap <silent><nowait> gd <Plug>(coc-definition)
+nmap <silent><nowait> gy <Plug>(coc-type-definition)
+nmap <silent><nowait> gi <Plug>(coc-implementation)
+nmap <silent><nowait> gr <Plug>(coc-references)
 
 " =========================================
 "    _____________   ____________  ___    __ 
@@ -78,7 +82,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set backspace=2
-colorscheme murphy
+colorscheme mustang " Related to colorschemes
 
 set noswapfile
 set autoread
@@ -104,16 +108,3 @@ set belloff=all
 set noerrorbells
 
 autocmd QuickFixCmdPost *grep* cwindow
-
-let g:rustfmt_autosave=1
-
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-
