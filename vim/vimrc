@@ -25,10 +25,10 @@ Plug 'instant-markdown/vim-instant-markdown' " Markdown file browser
 Plug 'preservim/vim-markdown' " Syntax highlighting, matching rules and mappings for the original Markdown and extensions
 Plug 'lervag/vimtex' " Plugin for Tex
 Plug 'thinca/vim-quickrun' " Execute program by :QuickRun
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Plugin for Language Server Protocol
 Plug 'rust-lang/rust.vim' " Rust file detection, syntax highlighting, formatting, Syntactic integration, and more
 Plug 'mattn/vim-goimports'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'josa42/coc-go'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'

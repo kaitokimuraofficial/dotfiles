@@ -36,9 +36,10 @@ echo "--------------------------------------------------------------------------
 echo "Setting up config files..."
 ln -sf ~/dotfiles/zsh/zshenv ~/.zshenv
 ln -sf ~/dotfiles/zsh/zshrc ~/.zshrc
-
 ln -sf ~/dotfiles/zsh/zprofile ~/.zprofile
+
 ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
+ln -sf ~/dotfiles/vim/coc-settings.json ~/.config/vim/coc-settings.json
 
 echo "----------------------------------------------------------------------------"
 echo "please set up iTerm2"
