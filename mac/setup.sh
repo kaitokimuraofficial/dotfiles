@@ -147,6 +147,15 @@ if ssh -T git@github.com>/dev/null 2>&1; then
   echo "============= DO IT =============="
   echo "Your SSH key is either not added to GitHub or not being used correctly."
   echo ""
+  echo "ssh-keygen"
+  echo "Enter file in which to save the key (/\$HOME/.ssh/github.key):"
+  echo "Enter passphrase (empty for no passphrase): "
+  echo "pbcopy < \$HOME/.ssh/github.key.pub"
+  echo "Add the SSH public key to GitHub"
+  echo "ssh -T git@github.com"
+  echo "If the connection is successful, you should see the following message:"
+  echo "> Hi username! You've successfully authenticated, but GitHub does not provide shell access."
+  echo ""
   echo "=================================="
 fi
 
