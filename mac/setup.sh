@@ -12,14 +12,18 @@ function separator_line() {
     echo "============================================================================"
 }
 
+function print_separator() {
+    echo ""
+    separator_line
+    echo ""
+}
+
 function is_installed() {
   type "$1" >/dev/null 2>&1
 }
 
+print_separator
 
-echo ""
-separator_line
-echo ""
 
 #######################################
 # Create symlink.
@@ -53,9 +57,7 @@ for ((i=0; i<${#symlink_src[@]}; i++)); do
   fi
 done
 
-echo ""
-separator_line
-echo ""
+print_separator
 
 
 #######################################
@@ -74,9 +76,7 @@ source "$NVM_DIR/nvm.sh"
 nvm install --default --lts
 nvm use --lts
 
-echo ""
-separator_line
-echo ""
+print_separator
 
 
 #######################################
@@ -93,9 +93,7 @@ else
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
-echo ""
-separator_line
-echo ""
+print_separator
 
 
 #######################################
@@ -123,9 +121,7 @@ for arg in "${BREW_LIBS[@]}"; do
   fi
 done
 
-echo ""
-separator_line
-echo ""
+print_separator
 
 
 #######################################
