@@ -13,7 +13,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin()
+call plug#begin('$HOME/.vim/pack/plugins')
 Plug 'scrooloose/nerdtree' " File system explorer for tree-like structure
 Plug 'sjl/gundo.vim' " Visualize your Vim undo tree
 Plug 'tpope/vim-fugitive'  " Git plugin for Vim
