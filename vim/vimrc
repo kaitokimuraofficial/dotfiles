@@ -29,6 +29,7 @@ Plug 'lervag/vimtex' " Plugin for Tex
 Plug 'thinca/vim-quickrun' " Execute program by :QuickRun
 Plug 'mattn/vim-goimports'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'fatih/vim-go'
 call plug#end()
 
 packloadall
