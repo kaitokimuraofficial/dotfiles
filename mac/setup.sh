@@ -125,6 +125,20 @@ print_separator
 
 
 #######################################
+# Install cargo.
+#######################################
+echo "Install cargo..."
+if is_installed cargo; then
+  echo "Skipping: cargo is already installed."
+else
+  echo "Installing cargo..."
+  /bin/bash -c "$(curl -sSf https://sh.rustup.rs)"
+fi
+
+print_separator
+
+
+#######################################
 # Set up git.
 #######################################
 if ! git config --global user.name>/dev/null 2>&1; then
