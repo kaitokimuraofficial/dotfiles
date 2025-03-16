@@ -12,5 +12,11 @@
       "initializationOptions": {
         "usePlaceholders": true
       }
+    },
+    "terraform": {
+        "command": "terraform-lsp",
+		"filetypes": ["terraform", "tf"],
+		"initializationOptions": {},
+		"settings": {}
     }
 }

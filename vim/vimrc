@@ -26,9 +26,12 @@ Plug 'instant-markdown/vim-instant-markdown' " Markdown file browser
 Plug 'preservim/vim-markdown' " Syntax highlighting, matching rules and mappings for the original Markdown and extensions
 Plug 'lervag/vimtex' " Plugin for Tex
 Plug 'thinca/vim-quickrun' " Execute program by :QuickRun
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Plugin for Language Server Protocol
 Plug 'rust-lang/rust.vim' " Rust file detection, syntax highlighting, formatting, Syntactic integration, and more
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " Plugin for Golang
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-goimports'
+Plug 'mattn/vim-lsp-settings'
 call plug#end()
 
 packloadall
@@ -54,6 +57,15 @@ let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 
+nmap <silent> gd :LspDefinition<CR>
+nmap <silent> <f2> :LspRename<CR>
+nmap <silent> <Leader>d :LspTypeDefinition<CR>
+nmap <silent> <Leader>r :LspReferences<CR>
+nmap <silent> <Leader>i :LspImplementation<CR>
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:asyncomplete_popup_delay = 200
+let g:lsp_text_edit_enabled = 0
 
 " =========================================
 "     __ __ ________  __   __  ______    ____  ____  _____   ________
