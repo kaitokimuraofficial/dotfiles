@@ -30,6 +30,7 @@ Plug 'thinca/vim-quickrun' " Execute program by :QuickRun
 Plug 'mattn/vim-goimports'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go'
+Plug 'hashivim/vim-terraform'
 call plug#end()
 
 packloadall
