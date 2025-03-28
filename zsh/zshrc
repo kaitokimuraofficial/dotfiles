@@ -6,6 +6,17 @@ export PS1="kaitokimura %1~ %# "
 autoload -Uz compinit
 compinit
 
+export HISTFILE=~/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=100000
+
+setopt no_beep
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt hist_ignore_dups
+setopt share_history
+setopt inc_append_history
+
 # kubectl
 source <(kubectl completion zsh)
 
