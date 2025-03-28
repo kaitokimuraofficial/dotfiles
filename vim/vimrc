@@ -33,6 +33,11 @@ call plug#end()
 
 packloadall
 silent! helptags ALL
+
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
 let g:airline_theme = 'wombat'
 set laststatus=2
 let g:airline#extensions#branch#enabled = 1
