@@ -29,6 +29,7 @@ print_separator
 # Create symlink.
 #######################################
 symlink_src=(
+  "${HOME}/.tmux.conf"
   "${HOME}/.vimrc"
   "${HOME}/.vim/coc-settings.json"
   "${HOME}/.zshenv"
@@ -37,6 +38,7 @@ symlink_src=(
 )
 
 symlink_dest=(
+  "${DOTFILES_DIR}/tmux/tmux.conf"
   "${DOTFILES_DIR}/vim/vimrc"
   "${DOTFILES_DIR}/vim/coc-settings.json"
   "${DOTFILES_DIR}/zsh/zshenv"
