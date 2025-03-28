@@ -15,6 +15,9 @@ source <(kubectl completion zsh)
 # Ocaml
 [[ ! -r "$OPAM_INIT" ]] || source "$OPAM_INIT"  > /dev/null 2> /dev/null
 
+alias vi="nvim"
+alias vim="nvim"
+alias view="nvim -R"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
