@@ -93,6 +93,7 @@ nmap <silent><nowait> gr <Plug>(coc-references)
 
 syntax on
 filetype plugin indent on
+set shell=/bin/zsh
 set autoindent
 set expandtab
 set tabstop=4
