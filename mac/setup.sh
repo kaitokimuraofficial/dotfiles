@@ -5,7 +5,9 @@ readonly NVM_VER="0.39.7"
 readonly BREW_LIBS=(
   "aws-vault --cask"
   "git"
+  "neovim"
   "tfenv"
+  "tmux"
 )
 
 function separator_line() {
