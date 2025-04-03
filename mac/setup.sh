@@ -31,6 +31,8 @@ print_separator
 # Create symlink.
 #######################################
 symlink_src=(
+  "${HOME}/.config/nvim/init.lua"
+  "${HOME}/.config/nvim/lua/config/lazy.lua"
   "${HOME}/.tmux.conf"
   "${HOME}/.vimrc"
   "${HOME}/.vim/coc-settings.json"
@@ -40,6 +42,8 @@ symlink_src=(
 )
 
 symlink_dest=(
+  "${DOTFILES_DIR}/nvim/init.lua"
+  "${DOTFILES_DIR}/nvim/lazy.lua"
   "${DOTFILES_DIR}/tmux/tmux.conf"
   "${DOTFILES_DIR}/vim/vimrc"
   "${DOTFILES_DIR}/vim/coc-settings.json"
