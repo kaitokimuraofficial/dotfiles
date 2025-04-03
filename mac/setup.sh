@@ -181,3 +181,15 @@ if ssh -T git@github.com>/dev/null 2>&1; then
   echo "=================================="
 fi
 
+if is_installed git; then
+  echo "Setting up Git aliases..."
+  git config --global alias.c "commit"
+  git config --global alias.cm "commit -m"
+  git config --global alias.can "commit --amend --no-edit"
+  git config --global alias.p "push"
+  git config --global alias.po "push origin"
+  git config --global alias.pom "push origin main"
+  git config --global alias.ds "diff --staged"
+  git config --global alias.st "status"
+fi
+
