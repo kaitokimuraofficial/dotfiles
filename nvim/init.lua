@@ -21,7 +21,7 @@ vim.opt.swapfile = false
 vim.opt.autoread = true
 
 vim.opt.undofile = true
-local undodir = vim.fn.expand("$HOME/.vim/undodir")
+local undodir = vim.fn.expand("$HOME/.local/state/nvim/undo")
 if vim.fn.isdirectory(undodir) == 0 then
     vim.fn.mkdir(undodir, "p")
 end
@@ -80,3 +80,15 @@ vim.g.go_highlight_methods = 1
 vim.g.terraform_fmt_on_save = 1
 
 require("config.lazy")
+
+local lspconfig = require('lspconfig')
+lspconfig.ruby_lsp.setup({
+  cmd = { "ruby-lsp" },
+  filetypes = { "ruby" },
+  root_dir = lspconfig.util.root_pattern("Gemfile", ".git"),
+  init_options = {
+    formatting = "auto",
+  },
+  single_file_support = true,
+})
+

@@ -33,4 +33,5 @@ require("lazy").setup({
   "neoclide/coc.nvim",
   "fatih/vim-go",
   "hashivim/vim-terraform",
+  "neovim/nvim-lspconfig",
 })
