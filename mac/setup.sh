@@ -187,6 +187,7 @@ if is_installed git; then
   git config --global alias.cm "commit -m"
   git config --global alias.can "commit --amend --no-edit"
   git config --global alias.p "push"
+  git config --global alias.push-f "push --force-with-lease"
   git config --global alias.po "push origin"
   git config --global alias.pom "push origin main"
   git config --global alias.ds "diff --staged"
