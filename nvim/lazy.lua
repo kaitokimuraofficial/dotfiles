@@ -34,4 +34,6 @@ require("lazy").setup({
   "fatih/vim-go",
   "hashivim/vim-terraform",
   "neovim/nvim-lspconfig",
+  "junegunn/fzf",
+  "junegunn/fzf.vim",
 })

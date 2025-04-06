@@ -91,4 +91,3 @@ lspconfig.ruby_lsp.setup({
   },
   single_file_support = true,
 })
-
