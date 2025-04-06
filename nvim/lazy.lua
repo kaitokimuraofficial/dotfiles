@@ -36,4 +36,5 @@ require("lazy").setup({
   "neovim/nvim-lspconfig",
   "junegunn/fzf",
   "junegunn/fzf.vim",
+  "catppuccin/nvim", name = "catppuccin", priority = 1000,
 })
