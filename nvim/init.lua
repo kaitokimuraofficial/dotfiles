@@ -143,3 +143,4 @@ require("catppuccin").setup({
 
 -- setup must be called before loading
 vim.cmd.colorscheme "catppuccin"
+vim.g.fzf_vim_command_prefix = 'fzf'
