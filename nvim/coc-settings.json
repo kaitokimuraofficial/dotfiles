@@ -1,0 +1,26 @@
+{
+  "languageserver": {
+      "terraform": {
+          "command": "terraform-lsp",
+          "filetypes": [
+              "terraform",
+              "tf"
+          ],
+          "initializationOptions": {},
+          "settings": {}
+      },
+      "bash": {
+          "command": "bash-language-server",
+          "args": ["start"],
+          "filetypes": ["sh"],
+          "ignoredRootPaths": ["~"]
+      },
+      "ruby": {
+          "command": "ruby-lsp",
+          "filetypes": ["ruby"]
+      }
+  },
+  "ruby.solargraph.enable": false,
+  "diagnostic.delay": 1000
+}
+
