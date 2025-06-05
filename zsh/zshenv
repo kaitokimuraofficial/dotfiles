@@ -4,5 +4,3 @@ HISTFILE="$ZDOTDIR/zsh/history"
 GHCUP_ENV="$HOME/.ghcup/env"
 OPAM_INIT="$HOME/.opam/opam-init/init.zsh"
 
-. "$HOME/.cargo/env"
-export PATH=$PATH:/Users/ka.kimura/.rbenv/versions/3.2.8/lib/ruby/gems/3.2.0/gems/selenium-webdriver-4.10.0/bin/macos

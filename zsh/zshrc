@@ -30,4 +30,3 @@ alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

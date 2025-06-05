@@ -1,5 +1,9 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ "$(uname)" == "Darwin" ]]; then
+  # macOS (Apple Silicon)
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ "$(uname)" == "Linux" ]]; then
+  # Linux
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
-
-# Added by `rbenv init` on 2025年 4月 4日 金曜日 06時13分28秒 JST
 eval "$(rbenv init - --no-rehash zsh)"
