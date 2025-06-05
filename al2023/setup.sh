@@ -78,7 +78,7 @@ else
 fi
 
 echo "Install libraries through Homebrew..."
-brew bundle --file=../Brewfile
+brew bundle --file="${DOTFILES_DIR}/Brewfile"
 
 print_separator
 
