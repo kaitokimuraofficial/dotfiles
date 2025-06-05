@@ -1,7 +1,6 @@
 #!/bin/bash -eu
 
 readonly DOTFILES_DIR="${HOME}/dotfiles"
-readonly NVM_VER="0.39.7"
 readonly BREW_LIBS=(
   "aws-vault --cask"
   "git"
@@ -67,25 +66,6 @@ for ((i=0; i<${#symlink_src[@]}; i++)); do
     ln -sf $dest $src
   fi
 done
-
-print_separator
-
-
-#######################################
-# Install nvm first, then install node.js with it.
-#######################################
-echo "Install nvm and node..."
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-  echo "Skipping: nvm is already installed."
-else
-  echo "Installing nvm..."
-  /bin/bash -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VER}/install.sh)"
-fi
-
-source "$NVM_DIR/nvm.sh"
-
-nvm install --default --lts
-nvm use --lts
 
 print_separator
 
