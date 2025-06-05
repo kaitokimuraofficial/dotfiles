@@ -1,14 +1,6 @@
 #!/bin/bash -eu
 
 readonly DOTFILES_DIR="${HOME}/dotfiles"
-readonly BREW_LIBS=(
-  "aws-vault --cask"
-  "git"
-  "go-task"
-  "neovim"
-  "tfenv"
-  "tmux"
-)
 
 function separator_line() {
     echo "============================================================================"
