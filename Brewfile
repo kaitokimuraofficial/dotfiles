@@ -1,6 +1,7 @@
 brew "awscli"
 brew "aws-vault"
 brew "go"
+brew "kubectl"
 brew "mysql"
 brew "neovim"
 brew "nodenv"
