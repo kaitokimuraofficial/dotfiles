@@ -71,7 +71,7 @@ print_separator
 
 
 #######################################
-# Install Homebrew and add it to the system PATH.
+# Install Homebrew and add it to the system PATH. Then, installing libraries.
 #######################################
 echo "Install Homebrew..."
 if is_installed brew; then
@@ -84,33 +84,8 @@ else
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
-print_separator
-
-
-#######################################
-# Install libraries through Homebrew.
-#######################################
 echo "Install libraries through Homebrew..."
-for arg in "${BREW_LIBS[@]}"; do
-  if [[ $arg =~ \  ]]; then
-    LIB=$(echo $arg | cut -d' ' -f1)
-    OPTS=$(echo $arg | cut -d' ' -f2-)
-
-    if is_installed $LIB; then
-      echo "Skipping: ${LIB} already installed."
-    else
-      echo "Installing ${LIB} with ${OPTS}..."
-      brew install $LIB $OPTS
-    fi
-  else
-    if is_installed $arg; then
-      echo "Skipping: ${arg} already installed."
-    else
-      echo "Installing ${arg}..."
-      brew install $arg
-    fi
-  fi
-done
+brew bundle --file=../Brewfile
 
 print_separator
 
