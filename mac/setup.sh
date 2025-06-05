@@ -1,7 +1,6 @@
 #!/bin/bash -eu
 
 readonly DOTFILES_DIR="${HOME}/dotfiles"
-readonly NVM_VER="0.39.7"
 readonly BREW_LIBS=(
   "aws-vault --cask"
   "git"
@@ -72,26 +71,7 @@ print_separator
 
 
 #######################################
-# Install nvm first, then install node.js with it.
-#######################################
-echo "Install nvm and node..."
-if [ -s "$NVM_DIR/nvm.sh" ]; then
-  echo "Skipping: nvm is already installed."
-else
-  echo "Installing nvm..."
-  /bin/bash -c "$(curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${NVM_VER}/install.sh)"
-fi
-
-source "$NVM_DIR/nvm.sh"
-
-nvm install --default --lts
-nvm use --lts
-
-print_separator
-
-
-#######################################
-# Install Homebrew and add it to the system PATH.
+# Install Homebrew and add it to the system PATH. Then, installing libraries.
 #######################################
 echo "Install Homebrew..."
 if is_installed brew; then
@@ -104,47 +84,8 @@ else
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
-print_separator
-
-
-#######################################
-# Install libraries through Homebrew.
-#######################################
 echo "Install libraries through Homebrew..."
-for arg in "${BREW_LIBS[@]}"; do
-  if [[ $arg =~ \  ]]; then
-    LIB=$(echo $arg | cut -d' ' -f1)
-    OPTS=$(echo $arg | cut -d' ' -f2-)
-
-    if is_installed $LIB; then
-      echo "Skipping: ${LIB} already installed."
-    else
-      echo "Installing ${LIB} with ${OPTS}..."
-      brew install $LIB $OPTS
-    fi
-  else
-    if is_installed $arg; then
-      echo "Skipping: ${arg} already installed."
-    else
-      echo "Installing ${arg}..."
-      brew install $arg
-    fi
-  fi
-done
-
-print_separator
-
-
-#######################################
-# Install cargo.
-#######################################
-echo "Install cargo..."
-if is_installed cargo; then
-  echo "Skipping: cargo is already installed."
-else
-  echo "Installing cargo..."
-  /bin/bash -c "$(curl -sSf https://sh.rustup.rs)"
-fi
+brew bundle --file=../Brewfile
 
 print_separator
 
