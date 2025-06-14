@@ -3,18 +3,10 @@
 BREW_PREFIX="/home/linuxbrew/.linuxbrew"
 DOTFILES_DIR="${HOME}/dotfiles"
 
-function separator_line() {
-    echo "============================================================================"
-}
-
 function print_separator() {
     echo ""
-    separator_line
+    echo "============================================================================"
     echo ""
-}
-
-function is_installed() {
-  type "$1" >/dev/null 2>&1
 }
 
 print_separator
@@ -47,6 +39,18 @@ symlink_dest=(
   "${DOTFILES_DIR}/zsh/zprofile"
 )
 
+git_aliases=(
+    "c commit"
+    "can commit --amend --no-edit"
+    "cm commit -m"
+    "ds diff --staged"
+    "p push"
+    "push-f push --force-with-lease"
+    "po push origin"
+    "pom push origin main"
+    "st status"
+)
+
 echo "Set up config files..."
 for ((i=0; i<${#symlink_src[@]}; i++)); do
   src=${symlink_src[$i]}
@@ -67,7 +71,7 @@ print_separator
 # Install Homebrew and add it to the system PATH. Then, installing libraries.
 #######################################
 echo "Install Homebrew..."
-if is_installed brew; then
+if type brew > /dev/null 2>&1; then
   echo "Skipping: Homebrew is already installed."
 else
   echo "Installing Homebrew..."
@@ -107,9 +111,9 @@ if ssh -T git@github.com>/dev/null 2>&1; then
   echo "Your SSH key is either not added to GitHub or not being used correctly."
   echo ""
   echo "ssh-keygen"
-  echo "Enter file in which to save the key (/\$HOME/.ssh/github.key):"
+  echo "Enter file in which to save the key (/\$HOME/.ssh/keys/github.key):"
   echo "Enter passphrase (empty for no passphrase): "
-  echo "pbcopy < \$HOME/.ssh/github.key.pub"
+  echo "pbcopy < \$HOME/.ssh/keys/github.key.pub"
   echo "Add the SSH public key to GitHub"
   echo "ssh -T git@github.com"
   echo "If the connection is successful, you should see the following message:"
@@ -118,16 +122,12 @@ if ssh -T git@github.com>/dev/null 2>&1; then
   echo "=================================="
 fi
 
-if is_installed git; then
-  echo "Setting up Git aliases..."
-  git config --global alias.c "commit"
-  git config --global alias.cm "commit -m"
-  git config --global alias.can "commit --amend --no-edit"
-  git config --global alias.p "push"
-  git config --global alias.push-f "push --force-with-lease"
-  git config --global alias.po "push origin"
-  git config --global alias.pom "push origin main"
-  git config --global alias.ds "diff --staged"
-  git config --global alias.st "status"
-fi
+echo ""
+echo "Setting up Git aliases..."
+for alias_pair in "${git_aliases[@]}"; do
+    alias_name="${alias_pair%% *}"
+    alias_cmd="${alias_pair#* }"
+
+    git config --global alias."$alias_name" "$alias_cmd"
+done
 

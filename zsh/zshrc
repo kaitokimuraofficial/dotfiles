@@ -2,7 +2,6 @@ echo "BE ALL THAT YOU CAN BE!"
 
 export PS1="kaitokimura %1~ %# "
 
-# Zsh 補完システムの初期化
 autoload -Uz compinit
 compinit
 

@@ -1,4 +1,3 @@
-# zshの環境変数
 HISTFILE="$ZDOTDIR/zsh/history"
 
 GHCUP_ENV="$HOME/.ghcup/env"
