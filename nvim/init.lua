@@ -39,6 +39,8 @@ vim.opt.clipboard = "unnamed"
 vim.opt.hidden = true
 vim.opt.belloff = "all"
 vim.opt.errorbells = false
+vim.opt.spell = true
+vim.opt.spelllang = { "en_us" }
 
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
     pattern = "*grep*",

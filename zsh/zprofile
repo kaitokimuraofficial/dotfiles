@@ -7,3 +7,4 @@ elif [[ "$(uname)" == "Linux" ]]; then
 fi
 
 eval "$(rbenv init - --no-rehash zsh)"
+eval "$(nodenv init -)"

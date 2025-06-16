@@ -17,7 +17,7 @@
       },
       "ruby": {
           "command": "ruby-lsp",
-          "filetypes": ["ruby"]
+          "filetypes": ["ruby", "rb"]
       }
   },
   "ruby.solargraph.enable": false,
