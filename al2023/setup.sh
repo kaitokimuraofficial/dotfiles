@@ -56,6 +56,11 @@ for ((i=0; i<${#symlink_src[@]}; i++)); do
   src=${symlink_src[$i]}
   dest=${symlink_dest[$i]}
 
+  if [[ ! -d "$src_dir" ]]; then
+    echo "Creating directory: $src_dir"
+    mkdir -p "$src_dir"
+  fi
+
   if [[ -L $src ]] && [[ $(readlink $src) == $dest ]]; then
     echo "Skipping: ${src} already links to ${dest}."
   else
