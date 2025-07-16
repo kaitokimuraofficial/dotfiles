@@ -4,8 +4,9 @@
 # If running in zsh, re-execute the script with bash.
 #######################################
 if [ -n "$ZSH_VERSION" ]; then
-  echo "Detected zsh. Re-executing with bash..."
-  exec bash "$0" "$@"
+    echo "Detected zsh. Re-executing with bash..."
+    exec bash "$0" "$@"
+    return $?
 fi
 
 
