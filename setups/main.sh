@@ -158,7 +158,9 @@ function check_git_user_email() {
 
 
 function check_github_ssh_access() {
-    if ! ssh -T git@github.com >/dev/null 2>&1; then
+    ssh -T git@github.com >/dev/null 2>&1
+    local ret=$?
+    if [[ $ret -ne 1 ]]; then
         echo "============= DO IT =============="
         echo "Your SSH key is either not added to GitHub or not being used correctly."
         echo ""
@@ -199,7 +201,9 @@ function setup_git() {
 
 
 
-
+#######################################
+# SETUP PROCEDURE
+#######################################
 symlinks=(
   "$HOME/.config/nvim/coc-settings.json:::$DOTFILES_DIR/nvim/coc-settings.json"
   "$HOME/.config/nvim/init.lua:::$DOTFILES_DIR/nvim/init.lua"
