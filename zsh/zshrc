@@ -28,3 +28,4 @@ source <(kubectl completion zsh)
 alias vi="nvim"
 alias vim="nvim"
 alias view="nvim -R"
+eval "$(/opt/homebrew/bin/brew shellenv)"
