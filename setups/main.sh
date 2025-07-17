@@ -59,7 +59,7 @@ function get_dotfiles_dir() {
 
 DOTFILES_DIR=$(get_dotfiles_dir)
 
-source ${DOTFILES_DIR}/setups/utils.sh
+source "${DOTFILES_DIR}"/setups/utils.sh
 
 
 #######################################
@@ -74,15 +74,17 @@ function create_symlinks() {
 
       local src="${pair%%:::*}"
       local dest="${pair##*:::}"
-      local src_dir="$(dirname "$src")"
+      local src_dir
+      src_dir="$(dirname "$src")"
 
-      if [[ ! -d "$src_dir" ]] then
+      if [[ ! -d "$src_dir" ]]; then
           echo "Creating parent directory: $src_dir"
           mkdir -p "$src_dir"
       fi
 
       if [[ -L "$src" ]]; then
-          local current_target="$(readlink "$src")"
+          local current_target
+          current_target="$(readlink "$src")"
 
           if [[ "$current_target" == "$dest" ]]; then
               echo "Skipping: already linked correctly: $src -> $dest"
